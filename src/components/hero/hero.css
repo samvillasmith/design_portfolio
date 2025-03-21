@@ -154,6 +154,14 @@ html {
   margin-bottom: 3rem;
 }
 
+.followText{
+    font-size: 1.2rem;
+    font-weight: 700;
+    rotate: 90deg;
+    position: absolute;
+    top: 50%;
+}
+
 .follow h2 {
   font-size: 1.2rem;
   text-align: center;
@@ -251,8 +259,7 @@ html {
   }
 
   .heroSection.right {
-    align-items: center;
-    padding: 1rem 1.5rem;
+    display: none; /* Hide right section at tablet sizes */
   }
 
   .qualifications p {
@@ -291,14 +298,9 @@ html {
     object-position: center bottom;
   }
 
-  .follow, .certificate {
-    width: 80%;
-    max-width: 300px;
-    margin: 1.5rem auto;
-    padding: 1.5rem;
-    position: relative;
-    z-index: 10;
-    background-color: rgba(255, 255, 255, 0.2);
+  /* Hide these elements at tablet breakpoints */
+  .certificate, .follow, .contactButton {
+    display: none;
   }
 }
 
@@ -370,16 +372,6 @@ html {
     height: 2.8rem;
   }
   
-  /* Hide right section elements at mobile breakpoints */
-  .certificate, .follow, .contactButton {
-    display: none;
-  }
-  
-  /* Hide the right section completely */
-  .heroSection.right {
-    display: none;
-  }
-  
   /* Position profile image at bottom, centered */
   .scroll {
     position: fixed;
@@ -405,6 +397,13 @@ html {
     left: 50%;
     transform: translateX(-50%);
     position: relative;
+  }
+  
+  /* FIXED: Only apply this to non-hero sections in MOBILE VIEW */
+  @media (max-width: 768px) {
+    .hero ~ section .scroll {
+      display: none;
+    }
   }
 }
 
@@ -452,3 +451,6 @@ html {
 section + section {
   margin-top: 0;
 }
+
+/* Add JavaScript to handle the visibility of the scroll element on mobile */
+/* Note: This CSS alone may not be sufficient - a small JavaScript snippet might be needed */

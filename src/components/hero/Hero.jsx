@@ -1,16 +1,59 @@
 import "./hero.css";
+import { useEffect, useRef, useState } from 'react'; 
 
 const Hero = () => {
+    // State to track image visibility
+    const [isProfileVisible, setIsProfileVisible] = useState(true);
+    // Reference to the hero section element
+    const heroRef = useRef(null);
+
+    // Function to handle scroll behavior
+    const handleScroll = () => {
+        // Only apply this behavior on mobile screens
+        if (window.innerWidth <= 768) {
+            if (heroRef.current) {
+                const heroRect = heroRef.current.getBoundingClientRect();
+                
+                // Check if hero section is still in viewport
+                if (heroRect.bottom <= 0) {
+                    // User has scrolled past the hero section
+                    setIsProfileVisible(false);
+                } else {
+                    // Hero section is still visible
+                    setIsProfileVisible(true);
+                }
+            }
+        } else {
+            // On larger screens, always show the profile
+            setIsProfileVisible(true);
+        }
+    };
+
+    // Set up scroll and resize event listeners
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleScroll);
+        
+        // Initial check
+        handleScroll();
+        
+        // Clean up event listeners when component unmounts
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleScroll);
+        };
+    }, []);
+
     return ( 
-        <div className="hero">
-            {/* Hero Section */ }
+        <div className="hero" ref={heroRef}>
+            {/* Hero Section */}
             <div className="heroSection left">
                 <h1 className="heroTitle">Howdy!<br/><span>I&apos;m Sam</span></h1>
                 <div className="qualifications">
                     <h2>UX/UI Designer <br/> Full-Stack Developer</h2>
                     <p>Based in the Texas Panhandle, I design and develop beautiful, user-friendly websites, web applications and mobile applications. I am passionate about crafting user-centric experiences and I am always looking to learn new things.</p>
                 </div>
-                {/* Technologies Component */ }
+                {/* Technologies Component */}
                 <div className="technologies">
                     <img src="https://img.icons8.com/color/48/000000/figma.png" alt="Figma"/>
                     <img src="../../../public/balsamiq.png" alt="Balsamiq" height="48px" width="48px"/>
@@ -26,80 +69,81 @@ const Hero = () => {
                     <img width="48" height="48" src="https://img.icons8.com/material/48/FFFFFF/amazon-web-services.png" alt="amazon-web-services"/>
                 </div>
             </div>
-            {/* Scroll SVG */ }
-            <a href="#services" className="scroll">
-                <img 
-                    src="../../../public/samvprofile-removebg.png" 
-                    height="900px" 
-                    width="900px"
-                    style={{ display: 'block', marginTop: '100px', marginRight: '10px', marginLeft: '260px' }}
-                />
+            {/* Scroll SVG */}
+            {isProfileVisible && (
+                <a href="#services" className="scroll">
+                    <img 
+                        src="../../../public/samvprofile-removebg.png" 
+                        height="900px" 
+                        width="900px"
+                        style={{ display: 'block', marginTop: '100px', marginRight: '10px', marginLeft: '260px' }}
+                    />
                 </a>
+            )}
                 
             <div className="heroSection right">
-                {/* Follow Component */ }
+                {/* Follow Component */}
                 <div className="follow">
                     <div className="followTextContainer">
-                        <div className="followText">FOLLOW ME</div>
+                        <div className="followText">FOLLOW</div>
                     </div>
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
-                            <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="linkedin"/>
-                        </a>
-                        <a href="https://www.github.com/" target="_blank" rel="noreferrer">
-                            <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="github"/>
-                        </a>
-                        <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
-                            <img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="youtube-play"/>
-                        </a>
-                       
-                    </div>
-                    <img src="../../../public/certificate.jpeg" alt="certificate" width="40%"/>
-                    {/* Certificate Component */ }
-                    <div className="certificate">
-                        <div className="certText">
-                            GOOGLE UX DESIGN 
-                            <br/>
-                            FOUNDATIONS CERTIFIED
-                        </div>
-                    </div>
-                    {/* Contact Component */ }
-                    <a href="#contact">
-                        <div className="contactButton">
-                        <svg viewBox="0 0 200 200" width="150" height="150">
-                            <circle cx="100" cy="100" r="90" fill="navy" />
-                            <path
-                                id="innerCirclePath"
-                                fill="none"
-                                d="M 100,100 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
-                            />
-                            <text className="circleText">
-                                <textPath href="#innerCirclePath" fill="white">Hire Now •</textPath>
-                            </text>
-                            <text className="circleText">
-                                <textPath href="#innerCirclePath" startOffset="44%" fill="white">
-                                Contact Me •
-                                </textPath>
-                            </text>
-                            </svg>
-                            <div className="arrow">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                width="50"
-                                height="50"
-                                fill="none"
-                                stroke="white"
-                                strokeWidth="2"
-                            >
-                                <line x1="6" y1="18" x2="18" y2="6" />
-                                <polyline points="9 6 18 6 18 15" />
-                            </svg>
-                            </div>
-                        </div>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+                        <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="linkedin"/>
+                    </a>
+                    <a href="https://www.github.com/" target="_blank" rel="noreferrer">
+                        <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="github"/>
+                    </a>
+                    <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
+                        <img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="youtube-play"/>
                     </a>
                 </div>
+                <img src="../../../public/certificate.jpeg" alt="certificate" width="40%"/>
+                {/* Certificate Component */}
+                <div className="certificate">
+                    <div className="certText">
+                        GOOGLE UX DESIGN 
+                        <br/>
+                        FOUNDATIONS CERTIFIED
+                    </div>
+                </div>
+                {/* Contact Component */}
+                <a href="#contact">
+                    <div className="contactButton">
+                    <svg viewBox="0 0 200 200" width="150" height="150">
+                        <circle cx="100" cy="100" r="90" fill="navy" />
+                        <path
+                            id="innerCirclePath"
+                            fill="none"
+                            d="M 100,100 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
+                        />
+                        <text className="circleText">
+                            <textPath href="#innerCirclePath" fill="white">Hire Now •</textPath>
+                        </text>
+                        <text className="circleText">
+                            <textPath href="#innerCirclePath" startOffset="44%" fill="white">
+                            Contact Me •
+                            </textPath>
+                        </text>
+                        </svg>
+                        <div className="arrow">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="50"
+                            height="50"
+                            fill="none"
+                            stroke="white"
+                            strokeWidth="2"
+                        >
+                            <line x1="6" y1="18" x2="18" y2="6" />
+                            <polyline points="9 6 18 6 18 15" />
+                        </svg>
+                        </div>
+                    </div>
+                </a>
             </div>
-     );
+        </div>
+    );
 }
  
 export default Hero;
