@@ -1,0 +1,178 @@
+.hero {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+}
+
+.heroSection {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.heroSection.right {
+    align-items: end;
+}
+
+.heroTitle {
+    margin-top: 50px;
+    font-size: 100px;
+    color: white;
+    line-height: 0.9; /* Reduces space between lines */
+}
+
+.heroTitle span {
+    color: navy;
+    display: block; /* Makes sure the span is a block element */
+    margin-top: 20px; /* Pulls "Sam" closer to "I'm" */
+    margin-bottom: 30px; /* Pushes "Sam" away from "I'm" */
+}
+
+.qualifications p {
+    font-size: 15px;
+    width: 60%;
+    margin-top: 20px;
+}
+
+/* Improved technologies section */
+.technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-top: 30px;
+    max-width: 70%;
+    padding-bottom: 40px;
+    
+}
+
+.technologies img {
+    transition: transform 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 10px;
+    width: 50px;
+}
+
+.technologies img:hover {
+    transform: scale(1.1);
+}
+
+.scroll{
+    margin-bottom: 20px;
+    width: max-content;
+}
+
+.follow {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    max-width: 60%;
+}
+
+.follow img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.followTextContainer {
+    width: 20px;
+    height: 20px;
+}
+
+.followText {
+    color: white;
+    font-size: 15px;
+    rotate: 90deg;
+    width: max-content;
+    height: 100%;
+    transform-origin: left top;
+    margin-top: 35px; 
+    display: flex;
+    align-items: center;
+}
+
+.certificate {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    line-height: 1.5;
+    font-weight: 500;
+    position: relative; /* Add positioning context */
+    right: auto; /* Reset any right alignment */
+    margin-left: auto; /* Center if needed */
+    margin-right: auto; /* Center if needed */
+    max-width: 200px; /* Limit width */
+}
+
+.certText {
+    width: 100%; 
+    text-align: center;
+}
+
+.certificate img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.contactButton {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.circleText{
+    letter-spacing: 0.1em;
+    font-size: 20px;
+}
+
+.arrow{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1200px) {
+    .certificate {
+      position: static;
+      margin: 20px auto;
+    }
+    
+    .heroSection.right {
+      align-items: center;
+      overflow: visible; /* Ensure content isn't cut off */
+      padding-right: 20px; /* Add some padding */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .certificate {
+      max-width: 150px;
+    }
+    
+    .certificate img {
+      width: 50px;
+      height: 50px;
+    }
+  }
