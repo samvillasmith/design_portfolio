@@ -55,13 +55,13 @@ html {
 }
 
 .heroSection.left {
-  padding: 2rem;
+  padding: 3rem;
   justify-content: flex-start;
 }
 
 .heroSection.right {
   align-items: flex-end;
-  padding: 2rem;
+  padding: 3rem;
 }
 
 /* Typography */
@@ -98,7 +98,7 @@ html {
 .technologies {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.2rem;
   margin-top: 2rem;
   max-width: 80%;
 }
@@ -143,10 +143,10 @@ html {
 .follow {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.2rem;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  padding: 1.5rem 1.2rem;
+  padding: 1.5rem;
   width: 10%;
   max-width: 250px;
   margin-top: 2rem;
@@ -226,125 +226,229 @@ html {
 /* Responsive Styles */
 @media (max-width: 1400px) {
   .heroTitle {
-    font-size: 5rem;
+    font-size: 5.5rem;
+  }
+
+  .heroSection.left, .heroSection.right {
+    padding: 2.5rem;
   }
 }
 
 @media (max-width: 1200px) {
   .hero {
     flex-direction: column;
-    height: auto;
+    align-items: center;
   }
-  
+
   .heroSection {
     width: 100%;
-    min-height: auto;
   }
-  
+
   .heroSection.left {
-    order: 1;
     align-items: center;
     text-align: center;
+    padding: 2rem 1.5rem;
   }
-  
+
   .heroSection.right {
-    order: 3;
     align-items: center;
-    padding-bottom: 3rem;
+    padding: 1rem 1.5rem;
   }
-  
+
   .qualifications p {
     width: 90%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 1rem auto;
+    line-height: 1.8;
   }
-  
+
   .technologies {
     justify-content: center;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 2rem;
+    max-width: 90%;
+    gap: 1rem;
+    margin: 1.5rem auto;
   }
-  
+
+  /* Keep profile image visible and absolute positioned */
   .scroll {
-    position: relative;
-    order: 2;
-    height: auto;
-    width: 100%;
-    display: block;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 50vh;
+    z-index: 1;
   }
-  
+
   .scroll img {
-    display: block;
-    width: 100%;
-    max-height: none;
     height: auto;
-    margin: 0;
+    width: auto;
+    max-height: 60vh;
+    max-width: 70%;
     object-fit: contain;
+    object-position: center bottom;
   }
-  
+
   .follow, .certificate {
-    max-width: 300px;
     width: 80%;
-  }
-  
-  /* This ensures there's no gap */
-  section {
-    overflow: hidden;
-    padding-bottom: 0;
-  }
-  
-  .hero {
-    margin-bottom: 0;
-    padding-bottom: 0;
+    max-width: 300px;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    position: relative;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.2);
   }
 }
 
-@media (max-width: 768px) {
+/* Medium breakpoint */
+@media (max-width: 992px) {
   .heroTitle {
     font-size: 4rem;
   }
   
+  .qualifications h2 {
+    font-size: 1.6rem;
+  }
+  
+  /* Ensure image maintains visibility */
+  .scroll {
+    height: 45vh;
+  }
+  
+  .scroll img {
+    max-height: 55vh;
+    max-width: 65%;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  /* Container styles */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Top section */
   .heroSection.left {
-    padding: 1.5rem;
+    width: 100%;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  .heroTitle {
+    font-size: 3.5rem;
+    margin-top: 1rem;
+  }
+  
+  .qualifications h2 {
+    font-size: 1.5rem;
+  }
+  
+  .qualifications p {
+    font-size: 0.9rem;
+    width: 95%;
+    margin: 1rem auto;
+  }
+  
+  /* Technology icons */
+  .technologies {
+    width: 100%;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 1.5rem auto;
+    margin-bottom: 3rem;
   }
   
   .technologies img {
-    width: 3rem;
-    height: 3rem;
+    width: 2.8rem;
+    height: 2.8rem;
   }
   
-  .contactButton {
-    width: 130px;
-    height: 130px;
+  /* Hide right section elements at mobile breakpoints */
+  .certificate, .follow, .contactButton {
+    display: none;
+  }
+  
+  /* Hide the right section completely */
+  .heroSection.right {
+    display: none;
+  }
+  
+  /* Position profile image at bottom, centered */
+  .scroll {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1;
+  }
+  
+  .scroll img {
+    max-height: 50vh;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroTitle {
+    font-size: 2.8rem;
+  }
+  
+  .qualifications h2 {
+    font-size: 1.3rem;
+  }
+  
+  .qualifications p {
+    font-size: 0.85rem;
+  }
+  
+  .technologies {
+    gap: 0.6rem;
+  }
+  
+  .technologies img {
+    width: 2.4rem;
+    height: 2.4rem;
+    padding: 0.4rem;
+  }
+  
+  /* Adjust image size for smaller screens */
+  .scroll img {
+    max-height: 45vh;
   }
 }
 
 @media (max-width: 480px) {
   .heroTitle {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   
-  .qualifications h2 {
-    font-size: 1.4rem;
-  }
-  
-  .technologies img {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-  
-  .follow, .certificate {
-    width: 90%;
+  /* Final adjustments for very small screens */
+  .scroll img {
+    max-height: 40vh;
   }
 }
 
-/* Add clear spacing between sections */
+/* Space between sections */
 section + section {
   margin-top: 0;
 }
