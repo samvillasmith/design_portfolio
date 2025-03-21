@@ -1,178 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(90deg, #1e5799 0%, #2989d8 50%, #7db9e8 100%);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+section {
+  min-height: 100vh;
+  position: relative;
+  scroll-snap-align: center;
+  overflow: hidden;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1536px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section Styles */
 .hero {
-    height: 100%;
-    overflow: hidden;
-    display: flex;
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
 .heroSection {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+}
+
+.heroSection.left {
+  padding: 2rem;
+  justify-content: flex-start;
 }
 
 .heroSection.right {
-    align-items: end;
+  align-items: flex-end;
+  padding: 2rem;
 }
 
+/* Typography */
 .heroTitle {
-    margin-top: 50px;
-    font-size: 100px;
-    color: white;
-    line-height: 0.9; /* Reduces space between lines */
+  font-size: 6.5rem;
+  color: white;
+  line-height: 0.9;
+  margin-top: 3rem;
+  font-weight: 700;
 }
 
 .heroTitle span {
-    color: navy;
-    display: block; /* Makes sure the span is a block element */
-    margin-top: 20px; /* Pulls "Sam" closer to "I'm" */
-    margin-bottom: 30px; /* Pushes "Sam" away from "I'm" */
+  color: navy;
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Job Title and Bio */
+.qualifications h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .qualifications p {
-    font-size: 15px;
-    width: 60%;
-    margin-top: 20px;
+  font-size: 1rem;
+  width: 80%;
+  margin-top: 1rem;
+  line-height: 1.6;
 }
 
-/* Improved technologies section */
+/* Technology Icons */
 .technologies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 12px;
-    margin-top: 30px;
-    max-width: 70%;
-    padding-bottom: 40px;
-    
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  max-width: 80%;
 }
 
 .technologies img {
-    transition: transform 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50px;
-    padding: 10px;
-    width: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 0.6rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .technologies img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-.scroll{
-    margin-bottom: 20px;
-    width: max-content;
+/* Profile Image */
+.scroll {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  pointer-events: none;
 }
 
+.scroll img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Follow Me Section */
 .follow {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 0px;
-    padding-bottom: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1.5rem 1.2rem;
+  width: 10%;
+  max-width: 250px;
+  margin-top: 2rem;
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.follow h2 {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.follow a {
+  display: flex;
+  justify-content: center;
 }
 
 .follow img {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
 }
 
-.followTextContainer {
-    width: 20px;
-    height: 20px;
+.follow img:hover {
+  transform: scale(1.2);
 }
 
-.followText {
-    color: white;
-    font-size: 15px;
-    rotate: 90deg;
-    width: max-content;
-    height: 100%;
-    transform-origin: left top;
-    margin-top: 35px; 
-    display: flex;
-    align-items: center;
-}
-
+/* Google Certificate */
 .certificate {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    text-align: center;
-    line-height: 1.5;
-    font-weight: 500;
-    position: relative; /* Add positioning context */
-    right: auto; /* Reset any right alignment */
-    margin-left: auto; /* Center if needed */
-    margin-right: auto; /* Center if needed */
-    max-width: 200px; /* Limit width */
-}
-
-.certText {
-    width: 100%; 
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  line-height: 1.5;
+  width: 60%;
+  max-width: 250px;
+  margin: 2rem 0;
+  font-weight: 500;
+  font-size: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
 }
 
 .certificate img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 0.5rem;
 }
 
+/* Contact Button */
 .contactButton {
-    margin-bottom: 50px;
-    position: relative;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 3rem;
 }
 
-.circleText{
-    letter-spacing: 0.1em;
-    font-size: 20px;
+.circleText {
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  fill: white;
 }
 
-.arrow{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 50px;
-    height: 50px;
-    align-items: center;
-    justify-content: center;
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 1400px) {
+  .heroTitle {
+    font-size: 5rem;
+  }
 }
 
 @media (max-width: 1200px) {
-    .certificate {
-      position: static;
-      margin: 20px auto;
-    }
-    
-    .heroSection.right {
-      align-items: center;
-      overflow: visible; /* Ensure content isn't cut off */
-      padding-right: 20px; /* Add some padding */
-    }
+  .hero {
+    flex-direction: column;
+    height: auto;
   }
   
-  @media (max-width: 768px) {
-    .certificate {
-      max-width: 150px;
-    }
-    
-    .certificate img {
-      width: 50px;
-      height: 50px;
-    }
+  .heroSection {
+    width: 100%;
+    min-height: auto;
   }
+  
+  .heroSection.left {
+    order: 1;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .heroSection.right {
+    order: 3;
+    align-items: center;
+    padding-bottom: 3rem;
+  }
+  
+  .qualifications p {
+    width: 90%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .technologies {
+    justify-content: center;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 2rem;
+  }
+  
+  .scroll {
+    position: relative;
+    order: 2;
+    height: auto;
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .scroll img {
+    display: block;
+    width: 100%;
+    max-height: none;
+    height: auto;
+    margin: 0;
+    object-fit: contain;
+  }
+  
+  .follow, .certificate {
+    max-width: 300px;
+    width: 80%;
+  }
+  
+  /* This ensures there's no gap */
+  section {
+    overflow: hidden;
+    padding-bottom: 0;
+  }
+  
+  .hero {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 4rem;
+  }
+  
+  .heroSection.left {
+    padding: 1.5rem;
+  }
+  
+  .technologies img {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .contactButton {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 3rem;
+  }
+  
+  .qualifications h2 {
+    font-size: 1.4rem;
+  }
+  
+  .technologies img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .follow, .certificate {
+    width: 90%;
+  }
+}
+
+/* Add clear spacing between sections */
+section + section {
+  margin-top: 0;
+}

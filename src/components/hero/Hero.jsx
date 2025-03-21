@@ -30,9 +30,9 @@ const Hero = () => {
             <a href="#services" className="scroll">
                 <img 
                     src="../../../public/samvprofile-removebg.png" 
-                    height="690px" 
-                    width="690px"
-                    style={{ display: 'block', margin: '0 auto' }}
+                    height="900px" 
+                    width="900px"
+                    style={{ display: 'block', marginTop: '100px', marginRight: '10px', marginLeft: '260px' }}
                 />
                 </a>
                 
@@ -51,11 +51,11 @@ const Hero = () => {
                         <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
                             <img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="youtube-play"/>
                         </a>
-                        
+                       
                     </div>
+                    <img src="../../../public/certificate.jpeg" alt="certificate" width="40%"/>
                     {/* Certificate Component */ }
                     <div className="certificate">
-                        <img width="144" height="144" src="https://img.icons8.com/color/144/google-logo.png" alt="google-logo"/>
                         <div className="certText">
                             GOOGLE UX DESIGN 
                             <br/>
