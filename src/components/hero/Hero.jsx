@@ -131,7 +131,6 @@ const Hero = () => {
                     <motion.img variants={techVariants} src="../../../public/balsamiq.png" alt="Balsamiq" height="48px" width="48px"/>
                     <motion.img variants={techVariants} width="48" height="48" src="https://img.icons8.com/fluency/48/canva.png" alt="canva"/>
                     <motion.img variants={techVariants} width="48" height="48" src="https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/48/external-react-social-media-tanah-basah-glyph-tanah-basah.png" alt="external-react-social-media-tanah-basah-glyph-tanah-basah"/>
-                    <motion.img variants={techVariants} width="48" height="48" src="https://img.icons8.com/external-tal-revivo-light-tal-revivo/24/external-redux-an-open-source-javascript-library-for-managing-application-state-logo-light-tal-revivo.png" alt="external-redux-an-open-source-javascript-library-for-managing-application-state-logo-light-tal-revivo"/>
                     <motion.img variants={techVariants} width="50" height="50" src="https://img.icons8.com/ios-filled/50/typescript.png" alt="typescript"/>
                     <motion.img variants={techVariants} width="48" height="48" src="https://img.icons8.com/fluency/48/nextjs.png" alt="nextjs"/>
                     <motion.img variants={techVariants} width="48" height="48" src="https://img.icons8.com/color/48/tailwindcss.png" alt="tailwindcss"/>

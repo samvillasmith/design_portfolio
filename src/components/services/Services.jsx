@@ -1,8 +1,15 @@
 import "./services.css";
+import ComputerModelContainer from "./computer/ComputerModelContainer";
 
 const Services = () => {
     return ( 
-        <div className="services">Services</div>
+        <div className="services">
+            <div className="serviceSection left">
+            </div>
+            <div className="serviceSection right">
+                <ComputerModelContainer />
+            </div>
+        </div>
      );
 }
  
