@@ -360,7 +360,7 @@ html {
   
   /* Technology icons */
   .technologies {
-    width: 100%;
+    width: 40%;
     justify-content: center;
     gap: 0.8rem;
     margin: 1.5rem auto;
@@ -445,6 +445,8 @@ html {
   .scroll img {
     max-height: 40vh;
   }
+
+  
 }
 
 /* Space between sections */
@@ -452,5 +454,3 @@ section + section {
   margin-top: 0;
 }
 
-/* Add JavaScript to handle the visibility of the scroll element on mobile */
-/* Note: This CSS alone may not be sufficient - a small JavaScript snippet might be needed */
